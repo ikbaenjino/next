@@ -1,0 +1,11 @@
+/* styles/globals.css */
+
+/* Inisialisasi layer dasar dari Tailwind CSS */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Anda bisa menambahkan gaya global tambahan di sini */
+body {
+  @apply bg-white text-gray-900;
+}
