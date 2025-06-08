@@ -1,6 +1,7 @@
 import Hero from "@/components/Hero";
 import Programs from "@/components/Programs";
 import Methods from "@/components/Methods";
+import Stats from "@/components/Stats";
 
 export default function HomePage() {
   return (
@@ -8,7 +9,8 @@ export default function HomePage() {
       <Hero />
       <Programs />
       <Methods />
-      {/* Tambahkan Stats, FAQ, dll di bawahnya nanti */}
+      <Stats />
+      {/* Lanjutkan ke FAQ, Events, Footer, dst */}
     </main>
   );
 }
