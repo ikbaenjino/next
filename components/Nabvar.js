@@ -1,21 +1,30 @@
-// components/Header.js
-import Link from 'next/link';
-import Image from 'next/image';
+import Link from 'next/link'
+import Image from 'next/image'
 
-export default function Header() {
+export default function Navbar() {
   return (
-    <header className="shadow-md py-4">
-      <nav className="container mx-auto flex justify-between items-center px-4">
+    <nav className="bg-white shadow-sm">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
         <Link href="/">
-          <Image src="/images/logo-kodingnext.svg" alt="Koding Next Logo" width={150} height={40} />
+          <a className="flex items-center">
+            <Image src="/logo.svg" alt="Koding Next" width={120} height={32} />
+          </a>
         </Link>
-        <div className="flex gap-6">
-          <Link href="/program" className="hover:text-blue-600">Program</Link>
-          <Link href="/lokasi" className="text-blue-600 font-semibold">Lokasi</Link>
-          <Link href="/blog" className="hover:text-blue-600">Blog</Link>
+        <div className="hidden md:flex space-x-8">
+          {['Beranda','Holiday Camp','Kursus','Program Sekolah','Franchise','Kompetisi','Lokasi','Tentang Kami']
+            .map(label => (
+              <Link key={label} href={`/${label.toLowerCase().replace(/ /g,'-')}`}>
+                <a className="nav-link">{label}</a>
+              </Link>
+            ))
+          }
         </div>
-      </nav>
-    </header>
-  );
+        <div className="flex items-center space-x-4">
+          <button className="btn-primary hidden md:block">Hubungi Kami</button>
+          {/* Language selector placeholder */}
+          <div className="border border-gray-300 rounded px-2 py-1 text-sm">ID</div>
+        </div>
+      </div>
+    </nav>
+  )
 }
-
