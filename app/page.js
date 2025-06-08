@@ -3,6 +3,7 @@ import Programs from "@/components/Programs";
 import Methods from "@/components/Methods";
 import Stats from "@/components/Stats";
 import Testimonials from "@/components/Testimonials";
+import Footer from "@/components/Footer"; // ✅ Tambahkan import Footer
 
 export default function HomePage() {
   return (
@@ -12,7 +13,7 @@ export default function HomePage() {
       <Methods />
       <Stats />
       <Testimonials />
-      {/* Berikutnya: Media Partners, Locations, FAQ, dll */}
+      <Footer /> {/* ✅ Tambahkan Footer di akhir */}
     </main>
   );
 }
