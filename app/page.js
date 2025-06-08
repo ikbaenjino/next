@@ -1,11 +1,12 @@
-// app/page.js
 import Hero from "@/components/Hero";
+import Programs from "@/components/Programs";
 
 export default function HomePage() {
   return (
     <main>
       <Hero />
-      {/* Nanti tambahkan <Programs />, <Stats />, dll di bawah ini */}
+      <Programs />
+      {/* Tambahkan section lainnya di bawah ini nanti */}
     </main>
   );
 }
