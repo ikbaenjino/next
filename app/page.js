@@ -1,12 +1,14 @@
 import Hero from "@/components/Hero";
 import Programs from "@/components/Programs";
+import Methods from "@/components/Methods";
 
 export default function HomePage() {
   return (
     <main>
       <Hero />
       <Programs />
-      {/* Tambahkan section lainnya di bawah ini nanti */}
+      <Methods />
+      {/* Tambahkan Stats, FAQ, dll di bawahnya nanti */}
     </main>
   );
 }
