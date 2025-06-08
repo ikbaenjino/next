@@ -2,6 +2,7 @@ import Hero from "@/components/Hero";
 import Programs from "@/components/Programs";
 import Methods from "@/components/Methods";
 import Stats from "@/components/Stats";
+import Testimonials from "@/components/Testimonials";
 
 export default function HomePage() {
   return (
@@ -10,7 +11,8 @@ export default function HomePage() {
       <Programs />
       <Methods />
       <Stats />
-      {/* Lanjutkan ke FAQ, Events, Footer, dst */}
+      <Testimonials />
+      {/* Berikutnya: Media Partners, Locations, FAQ, dll */}
     </main>
   );
 }
