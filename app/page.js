@@ -1,37 +1,43 @@
 // app/page.js
+
 import Image from 'next/image';
-import Link from 'next/link';
-import Button from '@/components/ui/Button'; // Menggunakan komponen tombol
 
 export default function HomePage() {
   return (
-    <>
-      {/* Hero Section */}
-      <section className="text-center py-20 px-4">
-        <h1 className="text-4xl md:text-5xl font-extrabold mb-4">
-          Buka Potensi Anak Anda di Dunia Digital
-        </h1>
-        <p className="max-w-2xl mx-auto text-lg text-gray-600 mb-8">
-          Koding Next adalah sekolah coding terdepan di Indonesia yang mengajarkan skill teknologi relevan untuk masa depan anak Anda.
-        </p>
-        <div className="flex justify-center gap-4">
-          <Link href="/lokasi">
-            <Button>Temukan Lokasi</Button>
-          </Link>
-          <Link href="/program">
-            <Button variant="secondary">Lihat Program</Button>
-          </Link>
+    <main>
+      <section className="bg-white">
+        <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8 flex flex-col-reverse lg:flex-row items-center gap-12">
+          
+          {/* Teks & Button */}
+          <div className="flex-1 text-center lg:text-left">
+            <h1 className="text-5xl font-bold text-accent leading-tight mb-4">
+              Persiapkan <br />
+              Anak Anda <br />
+              <span className="text-primary">Untuk Masa Depan</span>
+            </h1>
+            <p className="text-lg text-gray-600 mb-8">
+              Saatnya anak Anda memulai perjalanan pendidikan digital mereka di Sekolah Coding
+              dan Teknologi Terbaik di Asia Tenggara!
+            </p>
+            <button className="btn-primary">
+              GRATIS! Kelas Pertama
+            </button>
+          </div>
+
+          {/* Gambar Hero */}
+          <div className="flex-1 flex justify-center lg:justify-end">
+            <Image
+              src="/hero.png"
+              alt="Anak belajar dengan tablet"
+              width={600}
+              height={400}
+              className="rounded-xl shadow-xl"
+              priority
+            />
+          </div>
+
         </div>
       </section>
-
-      {/* Feature Section */}
-      <section className="bg-gray-50 py-16">
-         <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl font-bold mb-8">Mengapa Memilih Koding Next?</h2>
-            {/* Di sini Anda bisa menambahkan beberapa kartu fitur */}
-            <p>Kurikulum Berstandar Internasional, Pengajar Profesional, Lingkungan Belajar yang Menyenangkan.</p>
-         </div>
-      </section>
-    </>
+    </main>
   );
 }
