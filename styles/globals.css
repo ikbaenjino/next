@@ -1,9 +1,18 @@
-/* styles/globals.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* custom overrides */
+/* Custom button */
 .btn-primary {
-  @apply bg-primary text-white px-6 py-2 rounded-full hover:opacity-90 transition;
+  @apply bg-primary text-white font-medium px-6 py-3 rounded-full hover:bg-opacity-90 transition;
+}
+
+/* Navbar link hover */
+.nav-link {
+  @apply text-gray-700 hover:text-primary transition;
+}
+
+/* Footer background */
+.footer {
+  @apply bg-lightBg text-gray-600 py-8;
 }
