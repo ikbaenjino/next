@@ -4,15 +4,17 @@ const testimonials = [
   {
     name: "Ibu Maria",
     role: "Orang Tua Murid",
-    message: "Anak saya sangat antusias mengikuti kelas coding di KodingNext. Gurunya sabar dan materi sangat menarik!",
-    image: "/images/testimoni/maria.jpg"
+    message:
+      "Anak saya sangat antusias mengikuti kelas coding di KodingNext. Gurunya sabar dan materi sangat menarik!",
+    image: "/images/testimoni/maria.jpg",
   },
   {
     name: "Pak Andi",
     role: "Kepala Sekolah Mitra",
-    message: "Kami sangat terbantu dengan program ini. Anak-anak kami lebih kreatif dan percaya diri dengan teknologi.",
-    image: "/images/testimoni/andi.jpg"
-  }
+    message:
+      "Kami sangat terbantu dengan program ini. Anak-anak kami lebih kreatif dan percaya diri dengan teknologi.",
+    image: "/images/testimoni/andi.jpg",
+  },
 ];
 
 export default function Testimonials() {
@@ -25,14 +27,18 @@ export default function Testimonials() {
 
         <div className="grid md:grid-cols-2 gap-10">
           {testimonials.map((item, index) => (
-            <div key={index} className="bg-white p-6 rounded-xl shadow flex flex-col items-center text-center">
-              <div className="w-20 h-20 relative mb-4">
+            <div
+              key={index}
+              className="bg-white p-6 rounded-xl shadow flex flex-col items-center text-center"
+            >
+              <div className="mb-4">
                 <Image
                   src={item.image}
-                  alt={item.name}
-                  layout="fill"
-                  objectFit="cover"
-                  className="rounded-full"
+                  alt={`Foto ${item.name}`}
+                  width={80}
+                  height={80}
+                  className="rounded-full object-cover"
+                  loading="lazy"
                 />
               </div>
               <p className="text-gray-600 mb-4">“{item.message}”</p>
