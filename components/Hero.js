@@ -1,6 +1,3 @@
-import Image from "next/image";
-import { Button } from "../components/ui/button"; // jika tidak pakai alias @
-
 export default function Hero() {
   return (
     <section className="relative bg-gradient-to-br from-blue-50 to-white overflow-hidden">
@@ -13,19 +10,17 @@ export default function Hero() {
           <p className="text-lg text-gray-700">
             Program belajar coding untuk anak usia 4–16 tahun. Kurikulum modern, bilingual, dan berbasis project.
           </p>
-          <Button className="bg-red-500 hover:bg-red-600 text-white text-lg px-6 py-3 rounded-xl">
+          <button className="bg-red-500 hover:bg-red-600 text-white text-lg px-6 py-3 rounded-xl">
             Daftar Trial Gratis
-          </Button>
+          </button>
         </div>
 
         {/* Hero Image */}
         <div className="relative w-full h-80 md:h-[400px]">
-          <Image
+          <img
             src="/images/hero.png"
-            alt="Hero Image"
-            layout="fill"
-            objectFit="contain"
-            priority
+            alt="Anak belajar dengan tablet"
+            className="w-full h-full object-contain"
           />
         </div>
       </div>
