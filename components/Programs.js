@@ -4,19 +4,22 @@ const programs = [
   {
     title: "Little Koders",
     age: "Usia 4–8 tahun",
-    description: "Belajar logika dan pemrograman dengan cara menyenangkan menggunakan robot, game, dan alat bantu visual.",
+    description:
+      "Belajar logika dan pemrograman dengan cara menyenangkan menggunakan robot, game, dan alat bantu visual.",
     image: "/images/programs/little-koders.png",
   },
   {
     title: "Junior Koders",
     age: "Usia 8–16 tahun",
-    description: "Membangun aplikasi, game, dan website dengan tools seperti Scratch, Python, JavaScript dan lainnya.",
+    description:
+      "Membangun aplikasi, game, dan website dengan tools seperti Scratch, Python, JavaScript dan lainnya.",
     image: "/images/programs/junior-koders.png",
   },
   {
     title: "Holiday Camp",
     age: "Program Liburan",
-    description: "Kegiatan coding dan teknologi kreatif selama liburan sekolah, cocok untuk pemula dan lanjutan.",
+    description:
+      "Kegiatan coding dan teknologi kreatif selama liburan sekolah, cocok untuk pemula dan lanjutan.",
     image: "/images/programs/holiday-camp.png",
   },
 ];
@@ -35,13 +38,14 @@ export default function Programs() {
               key={index}
               className="bg-gray-50 rounded-xl shadow p-6 flex flex-col items-center text-center"
             >
-              <div className="relative w-40 h-40 mb-4">
+              <div className="mb-4">
                 <Image
                   src={program.image}
-                  alt={program.title}
-                  layout="fill"
-                  objectFit="contain"
-                  className="rounded-lg"
+                  alt={`Program ${program.title}`}
+                  width={160}
+                  height={160}
+                  className="rounded-lg object-contain"
+                  loading="lazy"
                 />
               </div>
               <h3 className="text-xl font-semibold text-gray-800">
