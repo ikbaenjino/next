@@ -1,23 +1,21 @@
-import { Lightbulb, Languages, Puzzle, Users } from "lucide-react";
-
 const methods = [
   {
-    icon: <Puzzle className="w-10 h-10 text-red-500" />,
+    icon: "🧩",
     title: "Kurikulum Handmade",
     desc: "Disusun oleh tim ahli, kurikulum kami menyesuaikan perkembangan anak dan teknologi terkini."
   },
   {
-    icon: <Languages className="w-10 h-10 text-red-500" />,
+    icon: "🌐",
     title: "Pengajar Bilingual",
     desc: "Semua guru mampu mengajar dalam bahasa Indonesia dan Inggris secara interaktif dan mudah dipahami."
   },
   {
-    icon: <Lightbulb className="w-10 h-10 text-red-500" />,
+    icon: "💡",
     title: "Berbasis Proyek",
     desc: "Anak akan membuat proyek nyata seperti game, aplikasi, dan robot yang dapat langsung digunakan."
   },
   {
-    icon: <Users className="w-10 h-10 text-red-500" />,
+    icon: "👥",
     title: "Pendekatan Personal",
     desc: "Pengajaran disesuaikan dengan minat dan gaya belajar masing-masing anak."
   },
@@ -34,7 +32,7 @@ export default function Methods() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
           {methods.map((method, index) => (
             <div key={index} className="bg-white p-6 rounded-xl shadow text-center">
-              <div className="mb-4 flex justify-center">{method.icon}</div>
+              <div className="mb-4 text-4xl">{method.icon}</div>
               <h3 className="text-xl font-semibold mb-2">{method.title}</h3>
               <p className="text-gray-600 text-sm">{method.desc}</p>
             </div>
