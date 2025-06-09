@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
 const programs = [
@@ -32,7 +31,10 @@ export default function Programs() {
 
         <div className="grid md:grid-cols-3 gap-10">
           {programs.map((program, index) => (
-            <div key={index} className="bg-gray-50 rounded-xl shadow p-6 flex flex-col items-center text-center">
+            <div
+              key={index}
+              className="bg-gray-50 rounded-xl shadow p-6 flex flex-col items-center text-center"
+            >
               <div className="relative w-40 h-40 mb-4">
                 <Image
                   src={program.image}
@@ -42,10 +44,16 @@ export default function Programs() {
                   className="rounded-lg"
                 />
               </div>
-              <h3 className="text-xl font-semibold text-gray-800">{program.title}</h3>
-              <p className="text-sm text-primary font-medium mb-2">{program.age}</p>
+              <h3 className="text-xl font-semibold text-gray-800">
+                {program.title}
+              </h3>
+              <p className="text-sm text-primary font-medium mb-2">
+                {program.age}
+              </p>
               <p className="text-gray-600 mb-4">{program.description}</p>
-              <Button className="bg-red-500 hover:bg-red-600 text-white">Pelajari Lebih Lanjut</Button>
+              <button className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-xl text-sm">
+                Pelajari Lebih Lanjut
+              </button>
             </div>
           ))}
         </div>
