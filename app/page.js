@@ -5,7 +5,9 @@ import Stats from "../components/Stats";
 import Testimonials from "../components/Testimonials";
 import Locations from "../components/Locations";
 import Events from "../components/Events"; 
-import FAQ from "../components/FAQ";// ✅ Tambahkan ini
+import FAQ from "../components/FAQ";
+import LanguageToggle from "../components/LanguageToggle";
+// ✅ Tambahkan ini
 // ✅ Tambahkan baris ini
 import Footer from "../components/Footer";
 
