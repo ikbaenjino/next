@@ -4,7 +4,8 @@ import Methods from "../components/Methods";
 import Stats from "../components/Stats";
 import Testimonials from "../components/Testimonials";
 import Locations from "../components/Locations";
-import Events from "../components/Events"; // ✅ Tambahkan ini
+import Events from "../components/Events"; 
+import FAQ from "../components/FAQ";// ✅ Tambahkan ini
 // ✅ Tambahkan baris ini
 import Footer from "../components/Footer";
 
@@ -17,6 +18,7 @@ export default function HomePage() {
       <Stats />
       <Testimonials />
       <Events />
+      <FAQ />
       <Locations /> {/* ✅ Tambahkan baris ini */}
       <Footer />
     </main>
