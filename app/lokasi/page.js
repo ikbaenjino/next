@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { getLocations } from '../../lib/locations'; // <-- Impor data dari file terpisah
 import LocationCard from '../../components/locations/LocationCard';
 import MapPopup from '../../components/locations/MapPopup';
-import styles from '../../styles/lokasi.module.css'; // <-- Contoh impor CSS Module
+
 
 // Ambil data dengan memanggil fungsi
 const locationsData = getLocations();
