@@ -2,7 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Tambahan styling global */
+/* Styling tambahan */
 body {
-  @apply bg-white text-gray-800;
+  background-color: #ffffff;
+  color: #1f2937; /* text-gray-800 */
 }
