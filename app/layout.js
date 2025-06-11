@@ -1,4 +1,4 @@
-import '../styles/globals-clean.css';
+import "../styles/tailwind.css"
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import LanguageToggle from '../components/LanguageToggle';
