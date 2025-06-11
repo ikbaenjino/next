@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Styling tambahan */
+body {
+  background-color: #ffffff;
+  color: #1f2937;
+}
