@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { getLocations } from '../../lib/locations'; // <-- Impor data dari file terpisah
 import LocationCard from '../../components/locations/LocationCard';
 import MapPopup from '../../components/locations/MapPopup';
-
+import styles from '../../styles/lokasi.module.css'; // <-- Contoh impor CSS Module
 
 // Ambil data dengan memanggil fungsi
 const locationsData = getLocations();
@@ -19,7 +19,7 @@ export default function LokasiPage() {
   return (
     <div className="container mx-auto px-4 py-8">
       {/* Menggunakan class dari CSS Module dan class dari Tailwind */}
-      <h1 className="text-3xl font-bold text-center mb-8 text-blue-700">
+      <h1 className={`${styles.pageTitle} text-3xl font-bold text-center mb-8`}>
         Lokasi Kami
       </h1>
       
