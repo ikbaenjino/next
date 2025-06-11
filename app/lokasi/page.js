@@ -19,7 +19,7 @@ export default function LokasiPage() {
   return (
     <div className="container mx-auto px-4 py-8">
       {/* Menggunakan class dari CSS Module dan class dari Tailwind */}
-      <h1 className={`${styles.pageTitle} text-3xl font-bold text-center mb-8`}>
+      <h1 className="text-3xl font-bold text-center mb-8 text-blue-700">
         Lokasi Kami
       </h1>
       
