@@ -19,12 +19,10 @@ const locations = [
 
 export default function Locations() {
   return (
-    <section className="bg-white py-20">
-      <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
-          Lokasi Cabang Kami
-        </h2>
-
+    <section className="bg-white py-20" aria-labelledby="locations-heading">
+  <h2 id="locations-heading" className="text-3xl font-bold text-center text-gray-900 mb-12">
+    Lokasi Cabang Kami
+  </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {locations.map((loc, index) => (
             <div
