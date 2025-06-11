@@ -1,4 +1,4 @@
-import '../styles/globals.css'
+import '../styles/globals-clean.css' // jika Anda sudah membuat yang baru
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import LanguageToggle from "../components/LanguageToggle";
