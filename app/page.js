@@ -20,8 +20,7 @@ export default function HomePage() {
       <Testimonials />
       <Events />
       <FAQ />
-      <Locations />
-      <Footer />
+      <Locations />      
     </main>
   );
 }
