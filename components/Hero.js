@@ -12,6 +12,7 @@ export default function Hero() {
           <p className="text-lg text-gray-600 mb-8">
             Saatnya anak Anda memulai perjalanan pendidikan digital mereka di Sekolah Coding dan Teknologi Terbaik di Asia Tenggara!
           </p>
+
           {/* Tombol CTA */}
           <button className="bg-pink-500 hover:bg-pink-600 text-white px-6 py-3 rounded-xl text-lg font-semibold transition duration-300">
             GRATIS! Kelas Pertama
@@ -19,13 +20,14 @@ export default function Hero() {
         </div>
 
         {/* Kolom Gambar */}
-        <div>
+        <div className="relative w-full max-h-64 md:max-h-96 overflow-hidden rounded-xl shadow-md">
           <Image
             src="/images/hero-banner.jpg"
             alt="Anak Belajar Coding"
             fill
-            sizes="(max-width: 768px) 100vw, 50vw"
-            className="rounded-xl shadow-md object-cover"
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 50vw"
+            className="object-cover w-full h-full"
+            style={{ objectFit: 'cover' }}
             priority
           />
         </div>
