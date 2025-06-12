@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from 'next/image';
 
 const programs = [
   {
@@ -16,7 +16,7 @@ const programs = [
   {
     title: "Holiday Camp",
     age: "Program Liburan",
-    description: "Kegiatan coding dan teknologi kreatif selama liburan sekolah, cocok untuk pemula dan lanjutan.",
+    description: "Kegiatan coding dan teknologi kreatif selama libur sekolah, cocok untuk pemula dan lanjutan.",
     image: "/images/programs/holiday-camp.png",
   },
 ];
@@ -29,22 +29,29 @@ export default function Programs() {
           Pilihan Program Belajar
         </h2>
 
-        <div className="grid md:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {programs.map((program, index) => (
-            <div key={index} className="bg-gray-50 rounded-xl shadow p-6 flex flex-col items-center text-center">
-              <div className="mb-4">
+            <div
+              key={index}
+              className="bg-white rounded-xl shadow-sm p-6 flex flex-col items-center text-center transition-transform hover:scale-105 duration-300"
+            >
+              <div className="mb-4 w-24 h-24 md:w-32 md:h-32 relative">
                 <Image
                   src={program.image}
                   alt={`Gambar program ${program.title}`}
-                  width={160}
-                  height={160}
-                  className="rounded-lg object-contain"
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="rounded-lg object-cover"
+                  priority={index === 0} // Prioritaskan gambar pertama
                 />
               </div>
-              <h3 className="text-xl font-semibold text-gray-800">{program.title}</h3>
-              <p className="text-sm text-primary font-medium mb-2">{program.age}</p>
-              <p className="text-gray-600 mb-4">{program.description}</p>
-              <button className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-xl text-sm" aria-label={`Pelajari ${program.title}`}>
+              <h3 className="text-xl font-semibold text-gray-800 mt-4">{program.title}</h3>
+              <p className="text-sm text-red-500 font-medium mb-2">{program.age}</p>
+              <p className="text-gray-600 mb-4 text-sm">{program.description}</p>
+              <button
+                className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-xl text-sm mt-auto"
+                aria-label={`Pelajari ${program.title}`}
+              >
                 Pelajari Lebih Lanjut
               </button>
             </div>
