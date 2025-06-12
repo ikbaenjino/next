@@ -1,0 +1,94 @@
+/* =================== */
+/* === TailwindCSS === */
+/* =================== */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ====================== */
+/* === Global Styling === */
+/* ====================== */
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  scroll-behavior: smooth; /* Animasi halus saat scroll */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ==================== */
+/* === Link & Text ==== */
+/* ==================== */
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+p {
+  line-height: 1.6;
+}
+
+/* ====================== */
+/* === Scrollbar Custom (Opsional) === */
+/* ====================== */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #aaa;
+}
+
+/* ====================== */
+/* === Utility Classes (Opsional) === */
+/* Bisa juga ditambahkan ke tailwind.config.js */
+/* ====================== */
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Center Flex */
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Responsive Image */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Reset List */
+ul,
+ol {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
