@@ -2,30 +2,30 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="relative bg-gradient-to-br from-blue-50 to-white overflow-hidden" aria-labelledby="hero-heading">
-      <div className="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-10 items-center">
-        {/* Text Section */}
-        <div className="space-y-6">
-          <h1 id="hero-heading" className="text-4xl md:text-5xl font-bold leading-tight text-gray-900">
-            Coding untuk Anak <br className="hidden sm:inline" /> Persiapkan Masa Depannya
+    <section className="bg-white px-4 py-16 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center gap-10">
+        
+        {/* Teks */}
+        <div className="text-center md:text-left md:w-1/2">
+          <h1 className="text-4xl sm:text-5xl font-bold text-gray-900">
+            Masa Depan Dimulai dari Sini
           </h1>
-          <p className="text-lg text-gray-700">
-            Program belajar coding untuk anak usia 4–16 tahun. Kurikulum modern, bilingual, dan berbasis project.
+          <p className="mt-4 text-lg text-gray-600">
+            Bergabunglah dalam program coding kreatif yang menyenangkan dan inspiratif!
           </p>
-          <button className="bg-red-500 hover:bg-red-600 text-white text-lg px-6 py-3 rounded-xl" aria-label="Daftar Trial Gratis">
-            Daftar Trial Gratis
-          </button>
         </div>
 
-        {/* Hero Image */}
-        <div className="relative w-full h-80 md:h-[400px]">
+        {/* Gambar Responsif */}
+        <div className="md:w-1/2 w-full relative h-64 sm:h-96">
           <Image
-            src="/images/hero.png"
-            alt="Anak belajar dengan tablet"
+            src="/images/hero-banner.jpg"
+            alt="Ilustrasi Anak Belajar Coding"
             fill
-            priority
             sizes="(max-width: 768px) 100vw, 50vw"
-            className="object-contain"
+            style={{ objectFit: 'cover' }}
+            className="rounded-xl shadow-md"
+            priority
+            quality={85}
           />
         </div>
       </div>
