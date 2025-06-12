@@ -29,7 +29,7 @@ export const metadata = {
     url: "https://next-zttx.vercel.app", 
     images: [
       {
-        url: "/images/og-image.jpg",
+        url: "/images/hero.png",
         width: 1200,
         height: 630,
         alt: "Koding Next - Sekolah Coding",
@@ -41,7 +41,7 @@ export const metadata = {
     site: "@kodingnext",
     title: "Koding Next",
     description: "Belajar coding dan teknologi untuk masa depan.",
-    images: ["/images/og-image.jpg"],
+    images: ["/images/logo-kodingnext.svg"],
   },
 };
 
