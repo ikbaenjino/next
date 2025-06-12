@@ -29,7 +29,7 @@ export const metadata = {
     url: "https://next-zttx.vercel.app", 
     images: [
       {
-        url: "/images/hero.png",
+        url: "/images/hero-banner.jpg",
         width: 1200,
         height: 630,
         alt: "Koding Next - Sekolah Coding",
