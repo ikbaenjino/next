@@ -1,3 +1,31 @@
+// Metadata OG langsung diinject ke halaman ini
+export const metadata = {
+  title: "Koding Next - Sekolah Coding & Teknologi",
+  description: "Belajar coding, teknologi, dan inovasi untuk anak dan remaja. Program belajar interaktif di Asia Tenggara.",
+  openGraph: {
+    title: "Koding Next - Sekolah Coding & Teknologi",
+    description: "Program coding kreatif untuk anak dan remaja di Asia Tenggara.",
+    url: "https://next-zttx.vercel.app",
+    siteName: "Koding Next",
+    images: [
+      {
+        url: "https://next-zttx.vercel.app/images/hero-banner.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Koding Next - Sekolah Coding",
+      },
+    ],
+    type: "website",
+    locale: "id_ID",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Koding Next - Sekolah Coding & Teknologi",
+    description: "Belajar coding dan teknologi untuk masa depan.",
+    images: ["https://next-zttx.vercel.app/images/hero-banner.jpg"],
+  },
+};
+
 import Hero from "../components/Hero";
 import Programs from "../components/Programs";
 import Methods from "../components/Methods";
@@ -20,7 +48,7 @@ export default function HomePage() {
       <Testimonials />
       <Events />
       <FAQ />
-      <Locations />      
+      <Locations />
     </main>
   );
 }
