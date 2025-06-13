@@ -12,7 +12,7 @@ const inter = Inter({
   display: 'swap',
 });
 
-// ✅ Format metadata khusus App Router
+// ✅ Metadata tetap
 export const metadata = {
   title: "Engineer - Sekolah Coding & Teknologi",
   description: "Belajar coding, teknologi, dan inovasi untuk anak dan remaja. Program belajar interaktif di Asia Tenggara.",
@@ -41,14 +41,18 @@ export const metadata = {
   },
 };
 
-// ✅ FORMAT BENAR untuk App Router
 export default function RootLayout({ children }) {
   return (
     <html lang="id" className={inter.variable}>
       <body className="font-sans">
         <Navbar />
         <LanguageToggle />
-        <main>{children}</main>
+        
+        {/* ✅ Tambahkan padding-top agar konten tidak tertutup navbar */}
+        <main className="pt-20">
+          {children}
+        </main>
+        
         <Footer />
       </body>
     </html>
