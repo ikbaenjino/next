@@ -1,3 +1,5 @@
+"use client"; // WAJIB agar komponen ini dan semua komponen anak bisa interaktif
+
 // Metadata OG langsung diinject ke halaman ini
 export const metadata = {
   title: "Engineer - Sekolah Coding & Teknologi",
@@ -26,6 +28,7 @@ export const metadata = {
   },
 };
 
+import { useState } from "react";
 import Hero from "../components/Hero";
 import Programs from "../components/Programs";
 import Methods from "../components/Methods";
@@ -40,7 +43,7 @@ const Locations = dynamic(() => import("../components/Locations"), { ssr: false 
 
 export default function HomePage() {
   return (
-    <main>
+    <main className="pt-20">
       <Hero />
       <Programs />
       <Methods />
@@ -49,6 +52,27 @@ export default function HomePage() {
       <Events />
       <FAQ />
       <Locations />
+
+      {/* Komponen test untuk cek state React bekerja */}
+      <div className="px-4 py-10">
+        <ToggleTest />
+      </div>
     </main>
+  );
+}
+
+// Komponen test interaktif
+function ToggleTest() {
+  const [show, setShow] = useState(false);
+  return (
+    <>
+      <button
+        className="bg-indigo-600 text-white px-4 py-2 rounded"
+        onClick={() => setShow(!show)}
+      >
+        Toggle Test
+      </button>
+      {show && <p className="mt-4 text-green-600">✅ State is working!</p>}
+    </>
   );
 }
