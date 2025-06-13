@@ -9,7 +9,7 @@ export const metadata = {
     siteName: "Koding Next",
     images: [
       {
-        url: "https://next-zttx.vercel.app/images/hero-banner.jpg",
+        url: "https://res.cloudinary.com/dowrfl4lt/image/upload/v1749774491/hero-banner_ui0o1q.jpg",
         width: 1200,
         height: 630,
         alt: "Koding Next - Sekolah Coding",
@@ -22,7 +22,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Koding Next - Sekolah Coding & Teknologi",
     description: "Belajar coding dan teknologi untuk masa depan.",
-    images: ["https://next-zttx.vercel.app/images/hero-banner.jpg"],
+    images: ["https://res.cloudinary.com/dowrfl4lt/image/upload/v1749774491/hero-banner_ui0o1q.jpg"],
   },
 };
 
