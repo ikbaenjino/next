@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import img from 'next/image';
 
 export default function Hero() {
   return (
