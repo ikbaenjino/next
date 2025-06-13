@@ -1,5 +1,4 @@
-
-// Metadata OG langsung diinject ke halaman ini
+// ❌ JANGAN pakai "use client" di sini
 export const metadata = {
   title: "Engineer - Sekolah Coding & Teknologi",
   description: "Belajar coding, teknologi, dan inovasi untuk anak dan remaja. Program belajar interaktif di Asia Tenggara.",
@@ -27,13 +26,13 @@ export const metadata = {
   },
 };
 
-import { useState } from "react";
 import Hero from "../components/Hero";
 import Programs from "../components/Programs";
 import Methods from "../components/Methods";
 import Stats from "../components/Stats";
 import dynamic from "next/dynamic";
 import Footer from "../components/Footer";
+import ClientTest from "../components/ClientTest"; // ✅ Import komponen interaktif
 
 const Testimonials = dynamic(() => import("../components/Testimonials"), { ssr: false });
 const Events = dynamic(() => import("../components/Events"), { ssr: false });
@@ -51,27 +50,7 @@ export default function HomePage() {
       <Events />
       <FAQ />
       <Locations />
-
-      {/* Komponen test untuk cek state React bekerja */}
-      <div className="px-4 py-10">
-        <ToggleTest />
-      </div>
+      <ClientTest /> {/* ✅ Komponen ini akan tes useState */}
     </main>
-  );
-}
-
-// Komponen test interaktif
-function ToggleTest() {
-  const [show, setShow] = useState(false);
-  return (
-    <>
-      <button
-        className="bg-indigo-600 text-white px-4 py-2 rounded"
-        onClick={() => setShow(!show)}
-      >
-        Toggle Test
-      </button>
-      {show && <p className="mt-4 text-green-600">✅ State is working!</p>}
-    </>
   );
 }
