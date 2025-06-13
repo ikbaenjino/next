@@ -1,4 +1,3 @@
-"use client"; // WAJIB agar komponen ini dan semua komponen anak bisa interaktif
 
 // Metadata OG langsung diinject ke halaman ini
 export const metadata = {
