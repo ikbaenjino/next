@@ -7,7 +7,7 @@ export default function Footer() {
 
         {/* Company Info */}
         <div>
-          <h4 className="text-lg font-bold mb-3">© 2025 Koding Next.</h4>
+          <h4 className="text-lg font-bold mb-3">© 2025 Engineer.</h4>
           <p className="text-sm text-gray-400">All Rights Reserved.</p>
         </div>
 

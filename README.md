@@ -1,2 +1,2 @@
-# Koding Next Dev
-Next.js project structure for Koding Next
+# Engineer Dev
+Next.js project structure for Engineer

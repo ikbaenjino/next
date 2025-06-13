@@ -7,7 +7,7 @@ const events = [
   {
     title: "Grand Opening Manado",
     date: "10 Juni 2025",
-    description: "Peresmian cabang terbaru Koding Next di Manado dengan demo kelas dan hadiah menarik."
+    description: "Peresmian cabang terbaru Engineer di Manado dengan demo kelas dan hadiah menarik."
   }
 ];
 
