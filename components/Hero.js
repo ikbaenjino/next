@@ -21,7 +21,7 @@ export default function Hero() {
 
         {/* Kolom Gambar */}
         <div className="relative w-full max-h-64 md:max-h-96 overflow-hidden rounded-xl shadow-md">
-          <Image
+          <img
             src="https://res.cloudinary.com/dowrfl4lt/image/upload/v1749774491/hero-banner_ui0o1q.jpg"
             alt="Anak Belajar Coding"
             fill
