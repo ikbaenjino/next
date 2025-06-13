@@ -6,21 +6,21 @@ const programs = [
     age: "Usia 4–8 tahun",
     description:
       "Belajar logika dan pemrograman dengan cara menyenangkan menggunakan robot, game, dan alat bantu visual.",
-    image: "/images/programs/little-koders.png",
+    image: "https://res.cloudinary.com/dowrfl4lt/image/upload/v1749779570/little-koders_phb38k.jpg",
   },
   {
     title: "Junior Koders",
     age: "Usia 8–16 tahun",
     description:
       "Membangun aplikasi, game, dan website dengan tools seperti Scratch, Python, JavaScript dan lainnya.",
-    image: "/images/programs/junior-koders.png",
+    image: "https://res.cloudinary.com/dowrfl4lt/image/upload/v1749779827/junior-koders_lissq9.jpg",
   },
   {
     title: "Holiday Camp",
     age: "Program Liburan",
     description:
       "Kegiatan coding dan teknologi kreatif selama libur sekolah, cocok untuk pemula dan lanjutan.",
-    image: "/images/programs/holiday-camp.png",
+    image: "https://res.cloudinary.com/dowrfl4lt/image/upload/v1749779853/holiday-camp_pq1czh.jpg",
   },
 ];
 
@@ -49,7 +49,7 @@ export default function Programs() {
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="rounded-lg object-cover"
-                  priority={index === 0} // Prioritaskan gambar pertama
+                  priority={index === 0}
                 />
               </div>
 
