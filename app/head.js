@@ -8,7 +8,7 @@ export default function Head() {
       <meta property="og:type" content="website" />
       <meta property="og:title" content="Koding Next – Sekolah Coding & Teknologi" />
       <meta property="og:description" content="Belajar coding kreatif untuk anak dan remaja di Asia Tenggara." />
-      <meta property="og:image" content="https://next-zttx.vercel.app/images/hero-banner.jpg" />
+      <meta property="og:image" content="https://res.cloudinary.com/dowrfl4lt/image/upload/v1749774491/hero-banner_ui0o1q.jpg" />
       <meta property="og:url" content="https://next-zttx.vercel.app" />
       <meta property="og:site_name" content="Koding Next" />
       <meta property="og:locale" content="id_ID" />
@@ -17,7 +17,7 @@ export default function Head() {
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Koding Next – Sekolah Coding & Teknologi" />
       <meta name="twitter:description" content="Program coding kreatif untuk anak dan remaja di Asia Tenggara." />
-      <meta name="twitter:image" content="https://next-zttx.vercel.app/images/hero-banner.jpg" />
+      <meta name="twitter:image" content="https://res.cloudinary.com/dowrfl4lt/image/upload/v1749774491/hero-banner_ui0o1q.jpg" />
     </>
   );
 }
