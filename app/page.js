@@ -1,8 +1,29 @@
-export default function Home() {
+// app/page.js
+
+'use client';
+
+import Hero from '@/components/Hero';
+import Events from '@/components/Events';
+import FAQ from '@/components/FAQ';
+import Locations from '@/components/Locations';
+import Methods from '@/components/Methods';
+import Programs from '@/components/Programs';
+import Stats from '@/components/Stats';
+import Testimonials from '@/components/Testimonials';
+import Footer from '@/components/Footer';
+
+export default function HomePage() {
   return (
-    <section className="max-w-4xl mx-auto px-4">
-      <h1 className="text-3xl font-bold mb-4">Selamat Datang di KodingNext</h1>
-      <p>Kami menyediakan program belajar coding untuk anak dan remaja.</p>
-    </section>
+    <main className="bg-white">
+      <Hero />
+      <Programs />
+      <Stats />
+      <Testimonials />
+      <Methods />
+      <Events />
+      <Locations />
+      <FAQ />
+      <Footer />
+    </main>
   );
 }
