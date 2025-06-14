@@ -6,15 +6,15 @@ import { navItems } from '../data/navData';
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [openIndex, setOpenIndex] = useState(null);
-  const navRef = useRef();
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const navRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
-    function handleClickOutside(e) {
-      if (navRef.current && !navRef.current.contains(e.target)) {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (navRef.current && !navRef.current.contains(e.target as Node)) {
         setOpenIndex(null);
       }
-    }
+    };
     document.addEventListener('click', handleClickOutside);
     return () => document.removeEventListener('click', handleClickOutside);
   }, []);
@@ -22,7 +22,9 @@ export default function Navbar() {
   return (
     <nav ref={navRef} className="bg-white border-b border-gray-200 z-50 relative">
       <div className="max-w-6xl mx-auto flex items-center justify-between p-4">
-        <Link href="/" className="text-xl font-bold">LogoAnda</Link>
+        <Link href="/">
+          <span className="text-xl font-bold cursor-pointer">LogoAnda</span>
+        </Link>
         <button
           className="md:hidden text-2xl"
           onClick={() => setMobileOpen(!mobileOpen)}
@@ -48,11 +50,9 @@ export default function Navbar() {
                 onClick={() => item.hasDropdown && setOpenIndex(openIndex === idx ? null : idx)}
               >
                 <Link href={item.href}>
-                  <a className="block md:inline-block">{item.title}</a>
+                  <span className="block md:inline-block cursor-pointer">{item.title}</span>
                 </Link>
-                {item.hasDropdown && (
-                  <span className="ml-2 md:ml-1">▾</span>
-                )}
+                {item.hasDropdown && <span className="ml-2 md:ml-1">▾</span>}
               </div>
 
               {item.hasDropdown && (
@@ -64,7 +64,7 @@ export default function Navbar() {
                   {item.children.map((ch, cidx) => (
                     <li key={cidx}>
                       <Link href={ch.href}>
-                        <a className="block px-4 py-2 hover:bg-gray-100">{ch.title}</a>
+                        <span className="block px-4 py-2 hover:bg-gray-100 cursor-pointer">{ch.title}</span>
                       </Link>
                     </li>
                   ))}
