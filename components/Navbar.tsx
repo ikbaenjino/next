@@ -14,18 +14,39 @@ export default function Navbar() {
         <Link href="/" className="text-xl font-bold text-gray-800">
           KodingNext
         </Link>
-        <button onClick={() => setIsOpen(!isOpen)} className="md:hidden text-gray-700">
+
+        {/* Tombol Toggle Mobile */}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="md:hidden text-gray-700"
+        >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
-        <nav className="hidden md:flex gap-6 text-sm font-medium text-gray-700">
+
+        {/* Menu Desktop */}
+        <nav className="hidden md:flex gap-6 text-sm font-medium text-gray-700 items-center relative">
           <Link href="/">Beranda</Link>
-          <Link href="/program">Program</Link>
+
+          {/* MENU PROGRAM dengan Dropdown */}
+          <div className="relative group">
+            <Link href="/program" className="hover:text-pink-600 flex items-center gap-1">
+              Program <span className="text-xs">▼</span>
+            </Link>
+            <div className="absolute top-full left-0 hidden group-hover:block bg-white shadow-md rounded-md mt-2 z-50">
+              <div className="flex flex-col p-4 min-w-[180px] text-sm text-gray-700">
+                <Link href="/program/little-koders" className="hover:text-pink-500">Little Koders</Link>
+                <Link href="/program/junior-koders" className="hover:text-pink-500">Junior Koders</Link>
+                <Link href="/program/holiday-camp" className="hover:text-pink-500">Holiday Camp</Link>
+              </div>
+            </div>
+          </div>
+
           <Link href="/lokasi">Lokasi</Link>
           <Link href="/blog">Blog</Link>
         </nav>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Menu Mobile */}
       <div
         className={`md:hidden transition-all duration-300 ease-in-out ${
           isOpen ? "max-h-screen py-4" : "max-h-0 overflow-hidden"
@@ -33,7 +54,13 @@ export default function Navbar() {
       >
         <div className="flex flex-col gap-4 px-6 text-sm font-medium text-gray-700">
           <Link href="/" onClick={handleLinkClick}>Beranda</Link>
+
+          {/* Expandable sub-menu di mobile (opsional bisa pakai accordion) */}
           <Link href="/program" onClick={handleLinkClick}>Program</Link>
+          <Link href="/program/little-koders" onClick={handleLinkClick} className="pl-4 text-gray-500">- Little Koders</Link>
+          <Link href="/program/junior-koders" onClick={handleLinkClick} className="pl-4 text-gray-500">- Junior Koders</Link>
+          <Link href="/program/holiday-camp" onClick={handleLinkClick} className="pl-4 text-gray-500">- Holiday Camp</Link>
+
           <Link href="/lokasi" onClick={handleLinkClick}>Lokasi</Link>
           <Link href="/blog" onClick={handleLinkClick}>Blog</Link>
         </div>
