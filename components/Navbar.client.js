@@ -1,3 +1,4 @@
+// components/Navbar.client.tsx
 "use client";
 import Link from "next/link";
 import { useState } from "react";
@@ -17,7 +18,7 @@ export default function Navbar() {
         {/* Hamburger Button - Mobile */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden text-gray-700"
+          className="md:hidden text-gray-700 focus:outline-none"
           aria-label="Toggle Menu"
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -32,14 +33,40 @@ export default function Navbar() {
         </nav>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu dengan animasi slide-in */}
       {isOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-md z-50">
-          <nav className="flex flex-col px-4 py-3 gap-3 text-sm font-medium text-gray-700">
-            <Link href="/" onClick={() => setIsOpen(false)}>Beranda</Link>
-            <Link href="/program" onClick={() => setIsOpen(false)}>Program</Link>
-            <Link href="/lokasi" onClick={() => setIsOpen(false)}>Lokasi</Link>
-            <Link href="/blog" onClick={() => setIsOpen(false)}>Blog</Link>
+        <div
+          className="md:hidden absolute top-full left-0 w-full bg-white shadow-lg z-50 transform transition-all duration-300 ease-in-out"
+        >
+          <nav className="flex flex-col px-4 py-3 gap-3 text-base font-medium text-gray-700">
+            <Link
+              href="/"
+              onClick={() => setIsOpen(false)}
+              className="px-3 py-2 rounded hover:bg-gray-100 transition"
+            >
+              Beranda
+            </Link>
+            <Link
+              href="/program"
+              onClick={() => setIsOpen(false)}
+              className="px-3 py-2 rounded hover:bg-gray-100 transition"
+            >
+              Program
+            </Link>
+            <Link
+              href="/lokasi"
+              onClick={() => setIsOpen(false)}
+              className="px-3 py-2 rounded hover:bg-gray-100 transition"
+            >
+              Lokasi
+            </Link>
+            <Link
+              href="/blog"
+              onClick={() => setIsOpen(false)}
+              className="px-3 py-2 rounded hover:bg-gray-100 transition"
+            >
+              Blog
+            </Link>
           </nav>
         </div>
       )}

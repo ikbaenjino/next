@@ -1,3 +1,5 @@
+/* styles/globals.css */
+
 /* =================== */
 /* === TailwindCSS === */
 /* =================== */
@@ -15,7 +17,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: 'Inter', sans-serif;
-  scroll-behavior: smooth; /* Animasi halus saat scroll */
+  scroll-behavior: smooth;
 }
 
 * {
@@ -23,10 +25,6 @@ body {
   margin: 0;
   padding: 0;
 }
-
-/* ==================== */
-/* === Link & Text ==== */
-/* ==================== */
 
 a {
   color: inherit;
@@ -59,8 +57,7 @@ p {
 }
 
 /* ====================== */
-/* === Utility Classes (Opsional) === */
-/* Bisa juga ditambahkan ke tailwind.config.js */
+/* === Utility Classes === */
 /* ====================== */
 
 .container {
@@ -70,21 +67,18 @@ p {
   padding: 0 1rem;
 }
 
-/* Center Flex */
 .flex-center {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* Responsive Image */
 img {
   max-width: 100%;
   height: auto;
   display: block;
 }
 
-/* Reset List */
 ul,
 ol {
   list-style: none;
