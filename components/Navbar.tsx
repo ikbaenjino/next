@@ -34,7 +34,7 @@ export default function Navbar() {
         </button>
 
         <ul
-          className={`flex flex-col md:flex-row md:items-center md:space-x-6 absolute md:static bg-white md:bg-transparent w-full md:w-auto left-0 md:left-auto top-full md:top-auto transition-transform md:transition-none ${
+          className={`relative flex flex-col md:flex-row md:items-center md:space-x-6 absolute md:static bg-white md:bg-transparent w-full md:w-auto left-0 md:left-auto top-full md:top-auto transition-transform md:transition-none ${
             mobileOpen ? 'block' : 'hidden md:block'
           }`}
         >
@@ -57,14 +57,16 @@ export default function Navbar() {
 
               {item.hasDropdown && (
                 <ul
-                  className={`absolute bg-white shadow-md rounded-md mt-0 md:mt-2 w-48 ${
+                  className={`absolute z-10 bg-white shadow-md rounded-md mt-2 w-48 ${
                     openIndex === idx ? 'block' : 'hidden'
                   }`}
                 >
                   {item.children.map((ch, cidx) => (
                     <li key={cidx}>
                       <Link href={ch.href}>
-                        <span className="block px-4 py-2 hover:bg-gray-100 cursor-pointer">{ch.title}</span>
+                        <span className="block px-4 py-2 hover:bg-gray-100 cursor-pointer">
+                          {ch.title}
+                        </span>
                       </Link>
                     </li>
                   ))}
