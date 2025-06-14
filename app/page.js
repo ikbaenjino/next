@@ -2,6 +2,7 @@
 
 'use client';
 
+import '../styles/Navbar.module.css'
 import Hero from '@/components/Hero';
 import Events from '@/components/Events';
 import FAQ from '@/components/FAQ';
