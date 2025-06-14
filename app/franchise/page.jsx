@@ -17,7 +17,7 @@ export const metadata = {
             <li>Lebih dari 70% siswa kami mendaftar ulang setiap semester.</li>
             <li>Sekolah pertama di Asia Tenggara untuk usia 4‑16 tahun.</li>
             <li>Mendidik 20.000+ siswa di seluruh Indonesia.</li>
-            <li>Buku kami dijual di >16 negara.</li>
+            <li>Buku kami dijual di &gt;16 negara.</li>
             <li>Kolaborasi dengan kementerian & sekolah internasional.</li>
           </ul>
         </section>
@@ -54,7 +54,7 @@ export const metadata = {
             <select className="w-full p-2 border rounded">
               <option>0–50 jt</option>
               <option>50–250 jt</option>
-              <option>>250 jt</option>
+              <option>&gt;250 jt</option>
             </select>
             <button className="bg-pink-500 hover:bg-pink-600 text-white py-2 px-4 rounded">Konsultasi Sekarang</button>
           </form>
@@ -62,4 +62,3 @@ export const metadata = {
       </main>
     );
   }
-  
