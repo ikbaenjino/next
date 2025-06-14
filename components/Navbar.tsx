@@ -64,7 +64,7 @@ export default function Navbar() {
                   onClick={(e) => {
                     if (item.hasDropdown && isMobile) {
                       const target = e.target as HTMLElement;
-                      if (target.closest('ul')) return; // allow submenu click
+                      if (target.closest('ul')) return;
                       e.preventDefault();
                       setOpenIndex(isOpen ? null : idx);
                     }
@@ -78,9 +78,11 @@ export default function Navbar() {
 
                 {item.hasDropdown && (
                   <ul
-                    className={`absolute z-10 bg-white shadow-md rounded-md mt-2 w-48 ${
-                      isOpen ? 'block' : 'hidden'
-                    }`}
+                    className={`${
+                      isMobile
+                        ? 'relative w-full px-4 bg-white'
+                        : 'absolute z-10 mt-2 w-48 bg-white shadow-md rounded-md'
+                    } ${isOpen ? 'block' : 'hidden'}`}
                   >
                     {item.children.map((ch, cidx) => (
                       <li key={cidx}>
