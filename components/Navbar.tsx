@@ -1,14 +1,25 @@
 "use client";
 
-import { useState, useEffect, useRef } from 'react';
-import Link from 'next/link';
-import { navItems } from '../data/navData';
+import { useState, useEffect, useRef } from "react";
+import Link from "next/link";
+import { navItems } from "../data/navData";
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const navRef = useRef<HTMLElement | null>(null);
 
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Update screen size
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Close menus if click outside
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (navRef.current && !navRef.current.contains(e.target as Node)) {
@@ -16,21 +27,17 @@ export default function Navbar() {
         setMobileOpen(false);
       }
     };
-    document.addEventListener('click', handleClickOutside);
-    return () => document.removeEventListener('click', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
-
-  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
 
   return (
     <nav ref={navRef} className="bg-white border-b border-gray-200 z-50 relative">
       <div className="max-w-6xl mx-auto flex items-center justify-between p-4">
-        {/* Logo */}
         <Link href="/">
           <span className="text-xl font-bold cursor-pointer">LogoAnda</span>
         </Link>
 
-        {/* Burger Button */}
         <button
           className="md:hidden text-2xl z-50"
           onClick={() => setMobileOpen(!mobileOpen)}
@@ -39,10 +46,9 @@ export default function Navbar() {
           ☰
         </button>
 
-        {/* Menu */}
         <ul
-          className={`absolute md:static top-full left-0 w-full md:w-auto bg-white md:bg-transparent md:flex md:items-center md:space-x-6 transition-all ${
-            mobileOpen ? 'flex flex-col' : 'hidden md:flex'
+          className={`absolute md:static top-full left-0 w-full md:w-auto bg-white md:bg-transparent transition-all z-40 ${
+            mobileOpen ? "flex flex-col" : "hidden md:flex md:flex-row md:items-center md:space-x-6"
           }`}
         >
           {navItems.map((item, idx) => {
@@ -51,44 +57,36 @@ export default function Navbar() {
             return (
               <li
                 key={idx}
-                className="relative"
-                onMouseEnter={() => {
-                  if (!isMobile && item.hasDropdown) setOpenIndex(idx);
-                }}
-                onMouseLeave={() => {
-                  if (!isMobile && item.hasDropdown) setOpenIndex(null);
-                }}
+                className={`relative ${item.hasDropdown ? "group" : ""}`}
               >
                 <div
-                  className="flex items-center justify-between cursor-pointer px-4 py-2 md:px-0 md:py-0"
+                  className="flex items-center justify-between px-4 py-2 md:px-0 md:py-0 cursor-pointer"
                   onClick={(e) => {
-                    if (item.hasDropdown && isMobile) {
-                      const target = e.target as HTMLElement;
-                      if (target.closest('ul')) return;
+                    if (isMobile && item.hasDropdown) {
                       e.preventDefault();
                       setOpenIndex(isOpen ? null : idx);
                     }
                   }}
                 >
                   <Link href={item.href}>
-                    <span className="block md:inline-block cursor-pointer">{item.title}</span>
+                    <span className="block">{item.title}</span>
                   </Link>
-                  {item.hasDropdown && <span className="ml-2 md:ml-1">▾</span>}
+                  {item.hasDropdown && <span className="ml-2">▾</span>}
                 </div>
 
                 {item.hasDropdown && (
                   <ul
                     className={`${
                       isMobile
-                        ? 'relative w-full px-4 bg-white'
-                        : 'absolute z-10 mt-2 w-48 bg-white shadow-md rounded-md'
-                    } ${isOpen ? 'block' : 'hidden'}`}
+                        ? "relative w-full px-4 bg-white"
+                        : "absolute left-0 top-full mt-2 w-48 bg-white shadow-md rounded-md z-30 group-hover:block"
+                    } ${isMobile ? (isOpen ? "block" : "hidden") : "hidden"}`}
                   >
-                    {item.children.map((ch, cidx) => (
+                    {item.children.map((child, cidx) => (
                       <li key={cidx}>
-                        <Link href={ch.href}>
+                        <Link href={child.href}>
                           <span className="block px-4 py-2 hover:bg-gray-100 cursor-pointer">
-                            {ch.title}
+                            {child.title}
                           </span>
                         </Link>
                       </li>
