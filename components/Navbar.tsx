@@ -16,7 +16,7 @@ export default function Navbar() {
           KodingNext
         </Link>
 
-        {/* Toggle untuk Mobile */}
+        {/* Tombol untuk mobile */}
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="md:hidden text-gray-700"

@@ -21,8 +21,8 @@ export default function HomePage() {
       <Testimonials />
       <Methods />
       <Events />
-      <Locations />
       <FAQ />
+      <Locations />
       <Footer />
     </main>
   );
