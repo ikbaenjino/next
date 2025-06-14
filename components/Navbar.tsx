@@ -8,18 +8,15 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const navRef = useRef<HTMLElement | null>(null);
-
   const [isMobile, setIsMobile] = useState(false);
 
-  // Update screen size
   useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < 768);
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  // Close menus if click outside
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (navRef.current && !navRef.current.contains(e.target as Node)) {
@@ -79,14 +76,20 @@ export default function Navbar() {
                     className={`${
                       isMobile
                         ? "relative w-full px-4 bg-white"
-                        : "absolute left-0 top-full mt-2 w-48 bg-white shadow-md rounded-md z-30 group-hover:block"
-                    } ${isMobile ? (isOpen ? "block" : "hidden") : "hidden"}`}
+                        : "absolute left-0 top-full mt-2 w-48 bg-white shadow-md rounded-md z-30 md:group-hover:block"
+                    } ${
+                      isMobile
+                        ? isOpen
+                          ? "block"
+                          : "hidden"
+                        : "hidden"
+                    }`}
                   >
-                    {item.children.map((child, cidx) => (
+                    {item.children.map((ch, cidx) => (
                       <li key={cidx}>
-                        <Link href={child.href}>
+                        <Link href={ch.href}>
                           <span className="block px-4 py-2 hover:bg-gray-100 cursor-pointer">
-                            {child.title}
+                            {ch.title}
                           </span>
                         </Link>
                       </li>
