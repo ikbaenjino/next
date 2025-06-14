@@ -6,10 +6,14 @@ import { Menu, X } from "lucide-react";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
+  const handleLinkClick = () => setIsOpen(false);
+
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-white shadow-md">
       <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-        <Link href="/" className="text-xl font-bold text-gray-800">KodingNext</Link>
+        <Link href="/" className="text-xl font-bold text-gray-800">
+          KodingNext
+        </Link>
         <button onClick={() => setIsOpen(!isOpen)} className="md:hidden text-gray-700">
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -21,16 +25,19 @@ export default function Navbar() {
         </nav>
       </div>
 
-      {isOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-md z-40">
-          <nav className="flex flex-col px-4 py-3 gap-3 text-sm font-medium text-gray-700">
-            <Link href="/" onClick={() => setIsOpen(false)}>Beranda</Link>
-            <Link href="/program" onClick={() => setIsOpen(false)}>Program</Link>
-            <Link href="/lokasi" onClick={() => setIsOpen(false)}>Lokasi</Link>
-            <Link href="/blog" onClick={() => setIsOpen(false)}>Blog</Link>
-          </nav>
+      {/* Mobile Menu */}
+      <div
+        className={`md:hidden transition-all duration-300 ease-in-out ${
+          isOpen ? "max-h-screen py-4" : "max-h-0 overflow-hidden"
+        } bg-white shadow-md`}
+      >
+        <div className="flex flex-col gap-4 px-6 text-sm font-medium text-gray-700">
+          <Link href="/" onClick={handleLinkClick}>Beranda</Link>
+          <Link href="/program" onClick={handleLinkClick}>Program</Link>
+          <Link href="/lokasi" onClick={handleLinkClick}>Lokasi</Link>
+          <Link href="/blog" onClick={handleLinkClick}>Blog</Link>
         </div>
-      )}
+      </div>
     </header>
   );
 }
