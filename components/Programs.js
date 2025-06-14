@@ -1,9 +1,11 @@
 import Image from 'next/image';
+import Link from 'next/link'; // Tambahkan Link dari next/link
 
 const programs = [
   {
     title: "Little Koders",
     age: "Usia 4–8 tahun",
+    slug: "little-koders", // tambahkan slug
     description:
       "Belajar logika dan pemrograman dengan cara menyenangkan menggunakan robot, game, dan alat bantu visual.",
     image: "https://res.cloudinary.com/dowrfl4lt/image/upload/v1749779570/little-koders_phb38k.jpg",
@@ -11,6 +13,7 @@ const programs = [
   {
     title: "Junior Koders",
     age: "Usia 8–16 tahun",
+    slug: "junior-koders",
     description:
       "Membangun aplikasi, game, dan website dengan tools seperti Scratch, Python, JavaScript dan lainnya.",
     image: "https://res.cloudinary.com/dowrfl4lt/image/upload/v1749779827/junior-koders_lissq9.jpg",
@@ -18,6 +21,7 @@ const programs = [
   {
     title: "Holiday Camp",
     age: "Program Liburan",
+    slug: "holiday-camp",
     description:
       "Kegiatan coding dan teknologi kreatif selama libur sekolah, cocok untuk pemula dan lanjutan.",
     image: "https://res.cloudinary.com/dowrfl4lt/image/upload/v1749779853/holiday-camp_pq1czh.jpg",
@@ -41,7 +45,7 @@ export default function Programs() {
               key={index}
               className="bg-white rounded-xl shadow-sm p-6 flex flex-col items-center text-center transition-transform hover:scale-105 duration-300"
             >
-              {/* Container Gambar */}
+              {/* Gambar */}
               <div className="mb-4 w-24 h-24 md:w-32 md:h-32 relative">
                 <Image
                   src={program.image}
@@ -53,26 +57,26 @@ export default function Programs() {
                 />
               </div>
 
-              {/* Judul Program */}
+              {/* Judul */}
               <h3 className="text-xl font-semibold text-gray-800 mt-4">
                 {program.title}
               </h3>
 
-              {/* Usia */}
               <p className="text-sm text-red-500 font-medium mb-2">
                 {program.age}
               </p>
 
-              {/* Deskripsi */}
               <p className="text-gray-600 mb-4 text-sm">{program.description}</p>
 
-              {/* Tombol CTA */}
-              <button
-                className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-xl text-sm mt-auto"
-                aria-label={`Pelajari ${program.title}`}
-              >
-                Pelajari Lebih Lanjut
-              </button>
+              {/* Tombol Pelajari Lebih Lanjut */}
+              <Link href={`/program/${program.slug}`}>
+                <button
+                  className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-xl text-sm mt-auto"
+                  aria-label={`Pelajari ${program.title}`}
+                >
+                  Pelajari Lebih Lanjut
+                </button>
+              </Link>
             </div>
           ))}
         </div>
