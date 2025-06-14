@@ -47,14 +47,18 @@ export default function Navbar() {
               <li
                 key={idx}
                 className="relative"
-                onMouseEnter={() => !isMobile && item.hasDropdown && setOpenIndex(idx)}
-                onMouseLeave={() => !isMobile && item.hasDropdown && setOpenIndex(null)}
+                onMouseEnter={() => {
+                  if (!isMobile && item.hasDropdown) setOpenIndex(idx);
+                }}
+                onMouseLeave={() => {
+                  if (!isMobile && item.hasDropdown) setOpenIndex(null);
+                }}
               >
                 <div
                   className="flex items-center justify-between cursor-pointer px-4 py-2 md:px-0 md:py-0"
                   onClick={(e) => {
-                    if (isMobile && item.hasDropdown) {
-                      e.preventDefault(); // cegah redirect
+                    if (item.hasDropdown && isMobile) {
+                      e.preventDefault(); // cegah navigasi ke /tentang-kami
                       setOpenIndex(isOpen ? null : idx);
                     }
                   }}
@@ -62,9 +66,7 @@ export default function Navbar() {
                   <Link href={item.href}>
                     <span className="block md:inline-block cursor-pointer">{item.title}</span>
                   </Link>
-                  {item.hasDropdown && (
-                    <span className="ml-2 md:ml-1">▾</span>
-                  )}
+                  {item.hasDropdown && <span className="ml-2 md:ml-1">▾</span>}
                 </div>
 
                 {item.hasDropdown && (
