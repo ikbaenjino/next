@@ -5,23 +5,17 @@ import Link from "next/link";
 import { navItems } from "../data/navData";
 
 export default function Navbar() {
+  // State untuk mobile menu dan submenu
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  // Ref untuk menutup menu jika klik di luar
   const navRef = useRef<HTMLElement | null>(null);
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
-
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (navRef.current && !navRef.current.contains(e.target as Node)) {
-        setOpenIndex(null);
         setMobileOpen(false);
+        setOpenIndex(null);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
@@ -31,75 +25,90 @@ export default function Navbar() {
   return (
     <nav ref={navRef} className="bg-white border-b border-gray-200 z-50 relative">
       <div className="max-w-6xl mx-auto flex items-center justify-between p-4">
+        {/* Logo */}
         <Link href="/">
           <span className="text-xl font-bold cursor-pointer">LogoAnda</span>
         </Link>
 
-        {/* Burger */}
+        {/* Hamburger button (mobile only) */}
         <button
-          className="md:hidden text-2xl z-50"
+          className="md:hidden text-2xl"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >
           ☰
         </button>
 
-        {/* Menu */}
-        <ul
-          className={`absolute md:static top-full left-0 w-full md:w-auto bg-white md:bg-transparent transition-all z-40 ${
-            mobileOpen ? "flex flex-col" : "hidden md:flex md:flex-row md:items-center md:space-x-6"
-          }`}
-        >
-          {navItems.map((item, idx) => {
-            const isOpen = openIndex === idx;
+        {/* ===== DESKTOP MENU (md+) ===== */}
+        <ul className="hidden md:flex md:space-x-6">
+          {navItems.map((item, idx) => (
+            <li key={idx} className="relative group">
+              <Link href={item.href}>
+                <span className="px-4 py-2 block hover:text-blue-600 cursor-pointer">
+                  {item.title}
+                </span>
+              </Link>
 
-            return (
-              <li
-                key={idx}
-                className={`relative ${item.hasDropdown ? "group" : ""}`}
-              >
-                {/* Item Utama */}
-                <div
-                  className="flex items-center justify-between px-4 py-2 md:px-0 md:py-0 cursor-pointer"
-                  onClick={(e) => {
-                    if (isMobile && item.hasDropdown) {
-                      e.preventDefault();
-                      setOpenIndex(isOpen ? null : idx);
-                    }
-                  }}
-                >
-                  <Link href={item.href}>
-                    <span className="block">{item.title}</span>
-                  </Link>
-                  {item.hasDropdown && <span className="ml-2">▾</span>}
-                </div>
-
-                {/* Submenu */}
-                {item.hasDropdown && (
-                  <ul
-                    className={`${
-                      isMobile
-                        ? isOpen
-                          ? "block"
-                          : "hidden"
-                        : "hidden md:absolute md:left-0 md:top-full md:mt-2 md:w-48 md:bg-white md:shadow-md md:rounded-md md:z-30 md:group-hover:block"
-                    }`}
-                  >
-                    {item.children.map((ch, cidx) => (
-                      <li key={cidx}>
-                        <Link href={ch.href}>
-                          <span className="block px-4 py-2 hover:bg-gray-100 cursor-pointer">
-                            {ch.title}
-                          </span>
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </li>
-            );
-          })}
+              {/* Dropdown desktop */}
+              {item.hasDropdown && (
+                <ul className="absolute left-0 top-full mt-1 hidden group-hover:block bg-white shadow-lg rounded-md min-w-[160px]">
+                  {item.children.map((ch, cidx) => (
+                    <li key={cidx}>
+                      <Link href={ch.href}>
+                        <span className="block px-4 py-2 hover:bg-gray-100 cursor-pointer">
+                          {ch.title}
+                        </span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+          ))}
         </ul>
+
+        {/* ===== MOBILE MENU (≤md) ===== */}
+        {mobileOpen && (
+          <ul className="flex flex-col md:hidden bg-white absolute top-full left-0 w-full border-t border-gray-200 z-40">
+            {navItems.map((item, idx) => {
+              const isOpen = openIndex === idx;
+              return (
+                <li key={idx} className="border-b border-gray-200">
+                  <div
+                    className="flex justify-between items-center px-4 py-3 cursor-pointer"
+                    onClick={() => {
+                      if (item.hasDropdown) {
+                        setOpenIndex(isOpen ? null : idx);
+                      } else {
+                        setMobileOpen(false);
+                      }
+                    }}
+                  >
+                    <Link href={item.href}>
+                      <span>{item.title}</span>
+                    </Link>
+                    {item.hasDropdown && <span>{isOpen ? "▾" : "▸"}</span>}
+                  </div>
+
+                  {/* Dropdown mobile */}
+                  {item.hasDropdown && isOpen && (
+                    <ul className="bg-white">
+                      {item.children.map((ch, cidx) => (
+                        <li key={cidx} className="px-6 py-2 border-b border-gray-100">
+                          <Link href={ch.href}>
+                            <span onClick={() => setMobileOpen(false)} className="block">
+                              {ch.title}
+                            </span>
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </li>
+              );
+            })}
+          </ul>
+        )}
       </div>
     </nav>
   );
