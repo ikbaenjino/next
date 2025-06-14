@@ -1,4 +1,4 @@
-// components/Navbar.client.tsx
+// components/Navbar.client.jsx
 "use client";
 import Link from "next/link";
 import { useState } from "react";
@@ -35,9 +35,7 @@ export default function Navbar() {
 
       {/* Mobile Menu dengan animasi slide-in */}
       {isOpen && (
-        <div
-          className="md:hidden absolute top-full left-0 w-full bg-white shadow-lg z-50 transform transition-all duration-300 ease-in-out"
-        >
+        <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-lg z-50 transform transition-all duration-300 ease-in-out">
           <nav className="flex flex-col px-4 py-3 gap-3 text-base font-medium text-gray-700">
             <Link
               href="/"
