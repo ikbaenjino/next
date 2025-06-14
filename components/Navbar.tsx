@@ -1,4 +1,6 @@
 // components/Navbar.jsx
+"use client";
+
 import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { navItems } from '../data/navData'
