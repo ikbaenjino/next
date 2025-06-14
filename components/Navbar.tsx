@@ -22,9 +22,12 @@ export default function Navbar() {
   return (
     <nav ref={navRef} className="bg-white border-b border-gray-200 z-50 relative">
       <div className="max-w-6xl mx-auto flex items-center justify-between p-4">
+        {/* Logo */}
         <Link href="/">
           <span className="text-xl font-bold cursor-pointer">LogoAnda</span>
         </Link>
+
+        {/* Mobile Toggle Button */}
         <button
           className="md:hidden text-2xl"
           onClick={() => setMobileOpen(!mobileOpen)}
@@ -33,9 +36,10 @@ export default function Navbar() {
           ☰
         </button>
 
+        {/* Menu */}
         <ul
-          className={`relative flex flex-col md:flex-row md:items-center md:space-x-6 absolute md:static bg-white md:bg-transparent w-full md:w-auto left-0 md:left-auto top-full md:top-auto transition-transform md:transition-none ${
-            mobileOpen ? 'block' : 'hidden md:block'
+          className={`md:flex md:items-center md:space-x-6 hidden md:static md:flex-row absolute bg-white w-full md:w-auto left-0 top-full transition-all ${
+            mobileOpen ? 'flex flex-col' : ''
           }`}
         >
           {navItems.map((item, idx) => (
@@ -46,18 +50,25 @@ export default function Navbar() {
               onMouseLeave={() => window.innerWidth >= 768 && item.hasDropdown && setOpenIndex(null)}
             >
               <div
-                className="flex items-center justify-between cursor-pointer p-4 md:p-0"
-                onClick={() => item.hasDropdown && setOpenIndex(openIndex === idx ? null : idx)}
+                className="flex items-center justify-between cursor-pointer px-4 py-2 md:px-0 md:py-0"
+                onClick={() => {
+                  if (window.innerWidth < 768 && item.hasDropdown) {
+                    setOpenIndex(openIndex === idx ? null : idx);
+                  }
+                }}
               >
                 <Link href={item.href}>
                   <span className="block md:inline-block cursor-pointer">{item.title}</span>
                 </Link>
-                {item.hasDropdown && <span className="ml-2 md:ml-1">▾</span>}
+                {item.hasDropdown && (
+                  <span className="ml-2 md:ml-1">▾</span>
+                )}
               </div>
 
+              {/* Dropdown */}
               {item.hasDropdown && (
                 <ul
-                  className={`absolute z-10 bg-white shadow-md rounded-md mt-2 w-48 ${
+                  className={`absolute md:absolute z-10 bg-white shadow-md rounded-md mt-2 w-48 ${
                     openIndex === idx ? 'block' : 'hidden'
                   }`}
                 >
