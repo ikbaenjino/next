@@ -1,4 +1,4 @@
-// components/Header.js
+// Header.js
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
@@ -10,7 +10,12 @@ export default function Header() {
     <header className="shadow-md py-4">
       <nav className="container mx-auto flex justify-between items-center px-4 relative">
         <Link href="/">
-          <Image src="/images/logo-kodingnext.svg" alt="Engineer Logo" width={150} height={40} />
+          <Image 
+            src="/images/logo-kodingnext.svg" 
+            alt="Engineer Logo" 
+            width={150} 
+            height={40} 
+          />
         </Link>
         
         {/* Desktop Menu */}
@@ -41,8 +46,8 @@ export default function Header() {
           )}
         </button>
 
-        {/* Mobile Menu dengan Transisi */}
-        <div className={`${isMenuOpen ? 'flex' : 'hidden'} md:hidden flex-col absolute top-full left-0 w-full bg-white shadow-lg p-4 menu-transition`}>
+        {/* Mobile Menu */}
+        <div className={`${isMenuOpen ? 'flex' : 'hidden'} md:hidden flex-col absolute top-full left-0 w-full bg-white shadow-lg p-4`}>
           <Link href="/" className="block py-2 hover:text-blue-600">Beranda</Link>
           <Link href="/program" className="block py-2 hover:text-blue-600">Program</Link>
           <Link href="/lokasi" className="block py-2 text-blue-600 font-semibold">Lokasi</Link>
